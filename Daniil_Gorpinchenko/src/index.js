@@ -6,7 +6,7 @@ const messages = [
     {name: "Oleg", content: "Hi! How are you?"},
     {name: "Ivan", content: "Im fine!"}
 ]
-/*
+
 const Message = ({name, content}) => <div><strong>{name}:</strong> {content}</div>;
 
 function MessageList({messages}) {
@@ -14,7 +14,7 @@ function MessageList({messages}) {
 }
 
 ReactDom.render(<MessageList messages={messages}/>, document.getElementById("root"));
-*/
+
 
 
 
