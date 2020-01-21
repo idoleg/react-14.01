@@ -16,11 +16,15 @@ module.exports = {
                 exclude: /node_modules/,
                 options: {
                   presets: ['@babel/env','@babel/react'],
+                  plugins: ['@babel/plugin-proposal-class-properties']
                 }
             },
         ],
     },
     plugins: [
      new HtmlWebpackPlugin({template: path.resolve(__dirname, "src", "index.html"),})
-     ]
+     ],
+    resolve: {
+        extensions: ['.jsx', '.js']
+    }
 }

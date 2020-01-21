@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 
+/*
 const messages = [
     {name: "Ivan", content: "Hello!"},
     {name: "Oleg", content: "Hi! How are you?"},
@@ -20,3 +21,9 @@ ReactDom.render(<MessageList messages={messages}/>, document.getElementById("roo
 
 //const root = docuument.getElementById("root");
 //console.warn("Привет! Сейчас",(new Date).valueOf());
+*/
+
+import {Counter} from "./components/Counter";
+import { App } from "./components/App";
+
+ReactDom.render(<App />, document.getElementById("root"));
