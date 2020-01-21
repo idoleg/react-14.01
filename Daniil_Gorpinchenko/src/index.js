@@ -25,5 +25,7 @@ ReactDom.render(<MessageList messages={messages}/>, document.getElementById("roo
 
 import {Counter} from "./components/Counter";
 import { App } from "./components/App";
+import MessageField from "./components/MessageField";
 
-ReactDom.render(<App />, document.getElementById("root"));
+//ReactDom.render(<App />, document.getElementById("root"));
+ReactDom.render(<MessageField />, document.getElementById("root"));
