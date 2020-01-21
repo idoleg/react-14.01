@@ -1,0 +1,27 @@
+{
+  "name": "reachjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --mode development",
+    "server": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavellukin/react-14.01.git"
+  },
+  "author": "Pavel Lukin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavellukin/react-14.01/issues"
+  },
+  "homepage": "https://github.com/pavellukin/react-14.01#readme",
+  "dependencies": {
+    "webpack": "^4.41.5",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  }
+}
