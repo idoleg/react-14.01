@@ -1,14 +1,11 @@
 .Message {
-    padding: 3px;
-    border-radius: 4px;
-    background-color: #e6e6cc;
+    margin: 4px;
+    padding: 4px;
     align-self: flex-end;
+    background-color:#fbeed7;
+    border-radius: 4px;
 }
 
 .Message--bot {
     align-self: flex-start;
-}
-
-.Message:not(:last-child){
-    margin-bottom: 16px;
 }

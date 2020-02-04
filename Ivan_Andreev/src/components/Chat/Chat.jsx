@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MessageList from '../MessageList/MessageList';
-import ChatForm from '../ChatForm/ChatForm';
+import {MessageList} from '../MessageList/MessageList';
+import {ChatForm} from '../ChatForm/ChatForm';
+import './Chat.css'
 
-export const Chat = ({message, name, onSendMessage}) =>
+export const Chat = ({messages, onSendMessage}) =>
     (
-        <div>
+        <div className='Chat'>
             <MessageList messages={messages}/>
-            <ChatForm {...{message, name, onSendMessage}}/>
+            <ChatForm onSendMessage = {onSendMessage}/>
         </div>
     );
 
 Chat.propTypes = {
-    message: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     onSendMessage: PropTypes.func.isRequired
-}
+}   

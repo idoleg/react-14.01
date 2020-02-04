@@ -1,0 +1,7 @@
+.ChatForm {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
+    padding: 8px;
+}
