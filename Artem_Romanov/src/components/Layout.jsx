@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
 
    render() {
        return (
-           <div className="layout-chat">
+           <div className="layout">
                <Header chatId={ this.props.chatId } />
                <div className="layout-canvas">
                    <div className="layout-left-side">
