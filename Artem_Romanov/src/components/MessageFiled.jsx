@@ -3,7 +3,7 @@ import { TextField, FloatingActionButton } from 'material-ui';
 import SendIcon from 'material-ui/svg-icons/content/send';
 import Message from './Message';
 //Импортируем файл со стилями
-import '../styles/styles.css'; 
+import './MessageField.css'; 
 
 //Кнопка отправки сообщения а так же сами сообщения в качестве дочерних элементов
 export default class MessageField extends React.Component {
@@ -12,14 +12,17 @@ state = {
     messages: [{ text: "Привет!", sender: 'bot' }, { text: "Как дела?", sender: 'bot' }], input: '', //В input текст введенный пользователем
 };
 
-componentDidUpdate() {
-    if (this.state.messages[this.state.messages.length - 1].sender !== 'bot') { // Если последний элемент в массиве равени имени автора, то запускаем ответ
+componentDidUpdate(prevProps, prevState) {
+    if (prevState.messages.length < this.state.messages.length &&
+    this.state.messages[this.state.messages.length - 1].sender !== 'bot') {// Если последний элемент в массиве равени имени автора, то запускаем ответ
         setTimeout(() =>
                 this.setState({
                     messages: [ ...this.state.messages, {text: 'Не лезь ко мне, я занят', sender: 'bot'} ] }),
-            1000);
+    1000);
     }
-}
+    }
+    
+
 //Отправка сообщений автора
 // Передаем сообщение в качестве аргумента функции
     handleClick = (message) => {

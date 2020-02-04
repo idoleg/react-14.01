@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import MessageField from './MessageFiled';
 import ChatList from './ChatList';
 import Header from './Header';
-import '../styles/layout.css';
+import './Layout.css';
 
 export default class Layout extends React.Component {
    static propTypes = {

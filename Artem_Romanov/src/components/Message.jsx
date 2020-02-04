@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Message.css'; 
 //Отправка сообщение с одиним и тем же текстом по нажатию кнопки
 export default class Message extends React.Component {
     render() {
