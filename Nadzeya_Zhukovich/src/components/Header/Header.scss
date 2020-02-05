@@ -1,9 +1,10 @@
 .header {
   background-color: #015367;
-}
-
-h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  box-sizing: border-box;
   color: #FFFFFF;
-  padding: 20px;
   letter-spacing: 2px;
 }
