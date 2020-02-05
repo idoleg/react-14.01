@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Chat} from "../components/Chat/Chat";
 
 const ROBOT_NAME = 'Robot';
@@ -38,13 +38,14 @@ export class ChatContainer extends React.Component {
                 {userMessage: 'Bye', answer: 'Bye!'},
             ]
         }
+        this.timeoutState;
     }
 
     componentDidUpdate() {
         const {id} = this.props.match.params;
         const {chats} = this.state;
         if(id && chats[id]){
-            setTimeout(() => {
+            this.timeoutState = setTimeout(() => {
                 const messages = this.state.chats[id].messages;
                 if(messages.length > 0) {
                     const lastMessage = messages[messages.length -1];
@@ -58,9 +59,12 @@ export class ChatContainer extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.timeoutState);
+    }
+
     handleSentMessage(message) {
         const {id} = this.props.match.params;
-        console.log('handleSentMessage('+message+', '+id+')')
         // this.setState((state) => ({messages: [...state.messages, message]}))
         this.setState((state) => ({chats: {
             ...state.chats,
@@ -82,8 +86,6 @@ export class ChatContainer extends React.Component {
         const {chats} = this.state;
         const {id} = this.props.match.params;
 
-        console.log('massages:', chats[id].messages);
-        console.log('id:', id);
         if(id && chats[id]){
             return <Chat {...{messages: chats[id].messages, onSentMessage: this.handleSentMessage.bind(this)}}/>
         } else {
