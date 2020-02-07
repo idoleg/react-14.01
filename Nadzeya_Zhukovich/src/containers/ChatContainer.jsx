@@ -1,96 +1,90 @@
 import React from "react";
 import {Chat} from "../components/Chat/Chat";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {loadChats, addMessage} from "../store/chatAction";
+//
+// const ROBOT_NAME = 'Robot';
+// class ChatContainer extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+        //     dictionary: [
+        //         {userMessage: 'Hello', answer: 'Hi! How are you?'},
+        //         {userMessage: 'Ok', answer: 'It is great!'},
+        //         {userMessage: 'Bye', answer: 'Bye!'},
+        //     ]
+        // };
+        // this.timeoutState;
+    // };
 
-const ROBOT_NAME = 'Robot';
-export class ChatContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            chats: {
-                1: {
-                    id: 1,
-                    name: 'Chat 1',
-                    messages: [
-                        {name: 'Ivan', content: 'Hello! It is chat 1'},
-                        {name: 'Oleg', content: 'Hi!'},
-                        {name: 'Ivan', content: 'Bye!'},
-                    ],
-                },
-                2: {
-                    id: 2,
-                    name: 'Chat 2',
-                    messages: [
-                        {name: 'Den', content: 'Hi from chat 2!'},
-                        {name: 'Ivan', content: 'MMMM!'},
-                        {name: 'Den', content: 'Cool'},
-                    ],
-                },
-                3: {
-                    id: 3,
-                    name: 'Chat 3',
-                    messages: [],
-                }
-            },
+    // вызов загрузки чатов реализован в Layout.jsx
+    // componentDidMount() {
+    //     this.props.loadChats();
+    // }
 
-            dictionary: [
-                {userMessage: 'Hello', answer: 'Hi! How are you?'},
-                {userMessage: 'Ok', answer: 'It is great!'},
-                {userMessage: 'Bye', answer: 'Bye!'},
-            ]
-        }
-        this.timeoutState;
-    }
+    // componentDidUpdate() {
 
-    componentDidUpdate() {
-        const {id} = this.props.match.params;
-        const {chats} = this.state;
-        if(id && chats[id]){
-            this.timeoutState = setTimeout(() => {
-                const messages = this.state.chats[id].messages;
-                if(messages.length > 0) {
-                    const lastMessage = messages[messages.length -1];
-                    if(lastMessage.name !== ROBOT_NAME) {
-                        const lastUserAnswer = lastMessage.content;
-                        const robotAnswer = this.robotAnswer(lastUserAnswer, 'I do not understand you.');
-                        this.handleSentMessage({name: ROBOT_NAME, content: robotAnswer})
-                    }
-                }
-            }, 2000);
-        }
-    }
+        // const {id} = this.props.match.params;
+        // const {chats} = this.state;
+        // if(id && chats[id]){
+        //     this.timeoutState = setTimeout(() => {
+        //         const messages = this.state.chats[id].messages;
+        //         if(messages.length > 0) {
+        //             const lastMessage = messages[messages.length -1];
+        //             if(lastMessage.name !== ROBOT_NAME) {
+        //                 const lastUserAnswer = lastMessage.content;
+        //                 const robotAnswer = this.robotAnswer(lastUserAnswer, 'I do not understand you.');
+        //                 this.handleSentMessage({name: ROBOT_NAME, content: robotAnswer})
+        //             }
+        //         }
+        //     }, 2000);
+        // }
+    // }
 
-    componentWillUnmount() {
-        clearTimeout(this.timeoutState);
-    }
+    // componentWillUnmount() {
+    //     clearTimeout(this.timeoutState);
+    // }
 
-    handleSentMessage(message) {
-        const {id} = this.props.match.params;
-        // this.setState((state) => ({messages: [...state.messages, message]}))
-        this.setState((state) => ({chats: {
-            ...state.chats,
-            [id]: {
-                name: state.chats[id].name, // name of chat
-                messages: [
-                    ...state.chats[id].messages,
-                    message,
-                ]
-            }}}))
-    }
+    // handleSentMessage = (id) => (message) => {
+    //     this.props.addMessage(id, message.name, message.content);
+    // }
 
-    robotAnswer(userMessage, defaultMessage) {
-        const robotAnswer = this.state.dictionary.filter(data => data.userMessage.toLowerCase() === userMessage.toLowerCase());
-        return robotAnswer.length > 0 ? robotAnswer[0].answer : defaultMessage;
-    }
+    // robotAnswer(userMessage, defaultMessage) {
+    //     const robotAnswer = this.state.dictionary.filter(data => data.userMessage.toLowerCase() === userMessage.toLowerCase());
+    //     return robotAnswer.length > 0 ? robotAnswer[0].answer : defaultMessage;
+    // }
 
-    render() {
-        const {chats} = this.state;
-        const {id} = this.props.match.params;
+//     render() {
+//         const {messages, id, addMessage} = this.props;
+//         if(messages){
+//             return <Chat {...{messages: messages, onSentMessage: addMessage}}/>
+//         } else {
+//             return <span> Chat does not exist </span>
+//         }
+//     }
+// }
 
-        if(id && chats[id]){
-            return <Chat {...{messages: chats[id].messages, onSentMessage: this.handleSentMessage.bind(this)}}/>
-        } else {
-            return <span> Chat does not exist </span>
-        }
-
+const mapStateToProps = ({chatReducer}, {match}) => {
+    const id = match.params.id;
+    return {
+        messages: id ? chatReducer.chats[id] ? chatReducer.chats[id].messages : null : null
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        loadChats, addMessage
+    }, dispatch);
+}
+
+const mergeProps = (stateProps, dispatchProps, {match}) => {
+    const id = match.params.id;
+    return {
+        ...stateProps,
+        onSentMessage: ({name, content}) =>
+            dispatchProps.addMessage(id, name, content),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Chat);

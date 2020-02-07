@@ -5,13 +5,16 @@ import {ChatForm} from '../ChatForm/ChatForm';
 import {Message} from "../Message/Message";
 import './Chat.scss';
 
-export const Chat = ({ messages, onSentMessage }) =>
-    (
-        <div className={'chat'}>
+export const Chat = ({ messages, onSentMessage }) => {
+    if(messages) {
+        return (<div className={'chat'}>
             <MessageField messages={messages}/>
             <ChatForm onSentMessage={onSentMessage}/>
-        </div>
-    );
+        </div>)
+    } else {
+        return <span> Chat does not exist </span>
+    }
+}
 
 Chat.propTypes = {
     messages: PropTypes.arrayOf(PropTypes.shape(Message.propTypes)),
