@@ -2,7 +2,8 @@ import React from "react";
 import {Chat} from "../components/Chat/Chat";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {loadChats, addMessage} from "../store/chatAction";
+import {loadChats, addMessage, activeChat} from "../store/chatAction";
+import chatReducer from "../store/chatReducer";
 //
 // const ROBOT_NAME = 'Robot';
 // class ChatContainer extends React.Component {
@@ -74,12 +75,13 @@ const mapStateToProps = ({chatReducer}, {match}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        loadChats, addMessage
+        loadChats, addMessage, activeChat
     }, dispatch);
 }
 
 const mergeProps = (stateProps, dispatchProps, {match}) => {
     const id = match.params.id;
+        dispatchProps.activeChat(id); //не работает, идет множественное перезаписывание
     return {
         ...stateProps,
         onSentMessage: ({name, content}) =>

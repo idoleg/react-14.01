@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {Profile} from "../components/Profile/Profile";
 
 const mapStateToProps = ({userReducer}) => {
-    console.log('name:', userReducer.userName)
     return {
         userName: userReducer.userName,
     }

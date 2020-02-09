@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import './Header.scss';
 
-export const Header = ({chatName}) =>
+export const Header = ({messengerInfo}) =>
     (
         <header className={'header row'}>
-            <h1>{chatName}</h1>
-            <p><Link to="/profile/">Profile</Link></p>
+            <h1>{messengerInfo.chatName}</h1>
+            <Link to="/profile/">{messengerInfo.userName}</Link>
         </header>
     );
 
 Header.propTypes = {
-    chatName: PropTypes.string.isRequired,
+    messengerInfo: PropTypes.object.isRequired,
 };
 
 /**

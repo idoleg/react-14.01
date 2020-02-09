@@ -1,17 +1,13 @@
-import React, {Component} from "react";
-import ChatContainer from '../ChatContainer';
-import {Header} from '../../components/Header/Header';
-import {ChatList} from "../../components/ChatList/CharList";
+import React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import {Profile} from "../../components/Profile/Profile";
 import {initStore} from "../../store/store";
 import {Provider} from "react-redux";
 import {loadChats} from "../../store/chatAction";
 import {userNameAction} from "../../store/userAction"
+import ChatContainer from '../ChatContainer';
 import ProfileContainer from "../ProfileContainer";
-
+import HeaderContainer from "../HeaderContainer";
 import ChatListContainer from "../ChatListContainer"
-
 import './Layout.scss';
 
 const store = initStore();
@@ -22,7 +18,7 @@ export class Layout extends React.Component {
         return <Provider store={store}>
             <BrowserRouter>
                 <div className={'layout-box'}>
-                    <Header chatName={'Test-1'}/>
+                    <HeaderContainer/>
                     <div className={'chat-container row'}>
                         <ChatListContainer/>
                         <Switch>

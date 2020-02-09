@@ -1,8 +1,9 @@
 import {handleActions} from 'redux-actions';
-import {loadChats, addMessage, loadChatList, userNameAction} from "./chatAction";
+import {loadChats, addMessage, loadChatList, activeChat} from "./chatAction";
 
 const defaultState = {
     chats: {},
+    activeChatId: '',
 };
 
 export default handleActions({
@@ -58,4 +59,12 @@ export default handleActions({
             ...state
         }
     },
+
+    // определение id активного чата
+    [activeChat]: (state, {payload: activeChatId}) => {
+        return {
+            ...state,
+            activeChatId: activeChatId,
+        }
+    }
 }, defaultState)

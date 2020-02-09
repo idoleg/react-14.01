@@ -9,11 +9,11 @@ export const ChatList = ({chatsInfo}) =>
         <nav className={'nav-bar'}>
             <ul className={'nav-bar-list'}>
                 {
-                    Object.values(chatsInfo).map((chat) =>
+                    Object.values(chatsInfo).map((chat, index) =>
                         <li>
-                            {console.log(chatsInfo)}
                             <ChatListItem chatName={chat.name}
                                           chatId={chat.id}
+                                          key={index}
                             />
                         </li>
                     )
