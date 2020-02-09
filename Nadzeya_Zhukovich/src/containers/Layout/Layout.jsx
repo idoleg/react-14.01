@@ -6,7 +6,8 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {Profile} from "../../components/Profile/Profile";
 import {initStore} from "../../store/store";
 import {Provider} from "react-redux";
-import {loadChatList, loadChats} from "../../store/chatAction";
+import {loadChats, userNameAction} from "../../store/chatAction";
+import ProfileContainer from "../ProfileContainer";
 
 import ChatListContainer from "../ChatListContainer"
 
@@ -14,8 +15,7 @@ import './Layout.scss';
 
 const store = initStore();
 store.dispatch(loadChats());
-store.dispatch(loadChatList());
-
+store.dispatch(userNameAction());
 export class Layout extends React.Component {
     render() {
         return <Provider store={store}>
@@ -27,7 +27,7 @@ export class Layout extends React.Component {
                         <Switch>
                             <Route path={"/chats/"} exact component={ChatContainer}/>
                             <Route path={"/chats/:id"} exact component={ChatContainer}/>
-                            <Route path={"/profile"} exact component={Profile}/>
+                            <Route path={"/profile"} exact component={ProfileContainer}/>
                             <Route path={"/"}> It is index </Route>
                         </Switch>
                     </div>

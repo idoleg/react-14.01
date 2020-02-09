@@ -1,9 +1,9 @@
 import {handleActions} from 'redux-actions';
-import {loadChats, addMessage, loadChatList} from "./chatAction";
-import {keys} from "@material-ui/core/styles/createBreakpoints";
+import {loadChats, addMessage, loadChatList, userNameAction} from "./chatAction";
 
 const defaultState = {
-    chats: {}
+    chats: {},
+    profile: {}
 };
 
 export default handleActions({
@@ -54,10 +54,18 @@ export default handleActions({
         }
     },
 
-
     [loadChatList]: (state) => {
         return {
             ...state
+        }
+    },
+
+    [userNameAction]: (state) => {
+        return {
+            ...state,
+            profile: {
+                userName: 'Nadzeya',
+            }
         }
     }
 }, defaultState)
