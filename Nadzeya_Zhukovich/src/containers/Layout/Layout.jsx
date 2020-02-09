@@ -6,12 +6,15 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {Profile} from "../../components/Profile/Profile";
 import {initStore} from "../../store/store";
 import {Provider} from "react-redux";
-import {loadChats} from "../../store/chatAction";
+import {loadChatList, loadChats} from "../../store/chatAction";
+
+import ChatListContainer from "../ChatListContainer"
 
 import './Layout.scss';
 
 const store = initStore();
 store.dispatch(loadChats());
+store.dispatch(loadChatList());
 
 export class Layout extends React.Component {
     render() {
@@ -20,7 +23,7 @@ export class Layout extends React.Component {
                 <div className={'layout-box'}>
                     <Header chatName={'Test-1'}/>
                     <div className={'chat-container row'}>
-                        <ChatList/>
+                        <ChatListContainer/>
                         <Switch>
                             <Route path={"/chats/"} exact component={ChatContainer}/>
                             <Route path={"/chats/:id"} exact component={ChatContainer}/>
