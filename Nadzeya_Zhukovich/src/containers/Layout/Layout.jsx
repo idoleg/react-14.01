@@ -6,7 +6,8 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {Profile} from "../../components/Profile/Profile";
 import {initStore} from "../../store/store";
 import {Provider} from "react-redux";
-import {loadChats, userNameAction} from "../../store/chatAction";
+import {loadChats} from "../../store/chatAction";
+import {userNameAction} from "../../store/userAction"
 import ProfileContainer from "../ProfileContainer";
 
 import ChatListContainer from "../ChatListContainer"

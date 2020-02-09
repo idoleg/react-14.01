@@ -3,7 +3,6 @@ import {loadChats, addMessage, loadChatList, userNameAction} from "./chatAction"
 
 const defaultState = {
     chats: {},
-    profile: {}
 };
 
 export default handleActions({
@@ -59,13 +58,4 @@ export default handleActions({
             ...state
         }
     },
-
-    [userNameAction]: (state) => {
-        return {
-            ...state,
-            profile: {
-                userName: 'Nadzeya',
-            }
-        }
-    }
 }, defaultState)

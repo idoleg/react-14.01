@@ -1,12 +1,12 @@
 import {bindActionCreators} from "redux";
-import {userNameAction} from "../store/chatAction";
+import {userNameAction} from "../store/userAction";
 import {connect} from "react-redux";
 import {Profile} from "../components/Profile/Profile";
 
-const mapStateToProps = ({chatReducer}) => {
-    console.log('name:', chatReducer.profile.userName)
+const mapStateToProps = ({userReducer}) => {
+    console.log('name:', userReducer.userName)
     return {
-        userName: chatReducer.profile.userName,
+        userName: userReducer.userName,
     }
 }
 
