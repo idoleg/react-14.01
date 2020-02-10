@@ -1,36 +1,46 @@
 import {handleActions} from 'redux-actions';
-import {loadChats, addChat, addMessage} from './chatAction.js';
+import {chatsRequest, chatsSuccess, addChat, addMessage} from './chatAction.js';
 
 const defaultState = {
-    chats: {}
+    chats: {},
+    isLoading: false,
 };
 
 export default handleActions({
-    [loadChats] : (state) => {
+    [chatsRequest] : (state) => {
         return {
             ...state,
-            chats: {
-                1: {
-                    name: 'Chat 1',
-                    messages: [
-                        { name: "ChatBot", content: "Hello! It's ChatBot of room#1!" },
-                    ]
-                },
-                2: {
-                    name: 'Chat 2',
-                    messages: [
-                        { name: "ChatBot", content: "Hello! It's ChatBot of room#2!" },
-                    ]
-                },
-                3: {
-                    name: 'Chat 3',
-                    messages: [
-                        { name: "ChatBot", content: "Hello! It's ChatBot of room#3!" },
-                    ]
-                }
+            isLoading: true,
+        };
+            // chats: {
+            //     1: {
+            //         name: 'Chat 1',
+            //         messages: [
+            //             { name: "ChatBot", content: "Hello! It's ChatBot of room#1!" },
+            //         ]
+            //     },
+            //     2: {
+            //         name: 'Chat 2',
+            //         messages: [
+            //             { name: "ChatBot", content: "Hello! It's ChatBot of room#2!" },
+            //         ]
+            //     },
+            //     3: {
+            //         name: 'Chat 3',
+            //         messages: [
+            //             { name: "ChatBot", content: "Hello! It's ChatBot of room#3!" },
+            //         ]
+            //     }
 
-            }
-        }
+            // }
+      
+    },
+    [chatsSuccess] : (state, {payload}) => {
+        return {
+            ...state,
+            isLoading: false,
+            chats: payload,
+        };
     },
     [addMessage] : (state, {payload: {id, name, content}}) => {
         return {
