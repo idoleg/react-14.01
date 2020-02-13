@@ -10,8 +10,8 @@ export const Header = ({ }) => {
 
         (<div className='Header'>
             <h1>Header</h1>
-            <h3>
-                <Link to='/Profile'></Link>
+            <h3> 
+                <Link to='/Profile'>Profile</Link>
             </h3>
         </div>)
     )
