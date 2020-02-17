@@ -2,7 +2,7 @@
     position: absolute;
     top: 100px;
     left: 30%;
-    height: 500px;
+    height: calc(100vh - 100px);
     width: 70%;
     overflow-y: auto;
     background-color: powderblue ;

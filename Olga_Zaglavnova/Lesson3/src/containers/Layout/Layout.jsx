@@ -11,6 +11,8 @@ import {history} from '../../store/store';
 import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
 import {loadChats, addMessage} from "../../store/chatAction";
+// import {addMessage} from "../../store/chatAction";
+// import {loadChats} from "../../store/asyncChatAction";
 
 import "./Layout.css";
 

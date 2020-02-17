@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {ChatPage} from '../components/ChatPage/ChatPage';
 import {bindActionCreators} from 'redux';
 import {addMessage, loadChats, deleteMessage} from '../store/chatAction';
+// import {addMessage, deleteMessage} from '../store/chatAction';
+// import {loadChats} from '../store/asyncChatAction';
 import {connect} from 'react-redux';
 
 const getCurrentTime=()=>{

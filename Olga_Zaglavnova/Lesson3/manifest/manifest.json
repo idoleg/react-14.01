@@ -1,0 +1,53 @@
+{
+    "short_name": "ozChat",
+    "name": "OlgaZaglavnova chat",
+    "icons": [
+          {
+        "src":"/manifest/m_chatIcon-16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-48.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-72.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src":"/manifest/m_chatIcon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#7ACCE5",
+    "theme_color": "#7ACCE5",
+    "orientation": "any",
+    "display": "standalone",
+    "gcm_sender_id": "1234567890"
+   }
+   

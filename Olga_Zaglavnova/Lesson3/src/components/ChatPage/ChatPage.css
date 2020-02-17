@@ -1,6 +1,6 @@
 .ChatPage__container{
     width: 70%;
-    height: 500px;
+    height: calc(100vh - 100px);
     margin: 0;
     background-color: aliceblue;
     padding: 30px;

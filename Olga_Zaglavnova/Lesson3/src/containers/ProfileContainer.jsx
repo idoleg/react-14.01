@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Profile} from '../components/Profile/Profile';
 //import {bindActionCreators} from 'redux';
 //import {loadChats} from "../store/chatAction";
+import {loadChats} from '../store/asyncChatAction';
+
 import {connect} from 'react-redux';
 
 //class ProfileContainer extends Component {}
