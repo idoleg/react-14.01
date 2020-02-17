@@ -1,0 +1,80 @@
+{
+    "John": {
+        "name": "John",
+        "messages": [
+            {
+                "msgClass": "robot",
+                "name": "Робот",
+                "message": "Привет, John! Как дела?"
+            }
+        ],
+        "userAvatar": "/src/components/ChatList/img/chatList_icon1.png",
+        "botAnswers": "",
+        "isActive": ""
+    },
+    "David": {
+        "name": "David",
+        "messages": [
+            {
+                "msgClass": "robot",
+                "name": "Робот",
+                "message": "Привет, David! Как дела?"
+            }
+        ],
+        "userAvatar": "/src/components/ChatList/img/chatList_icon2.png",
+        "botAnswers": "",
+        "isActive": ""
+    },
+    "Cindy": {
+        "name": "Cindy",
+        "messages": [
+            {
+                "msgClass": "robot",
+                "name": "Робот",
+                "message": "Привет, Cindy! Как дела?"
+            }
+        ],
+        "userAvatar": "/src/components/ChatList/img/chatList_icon3.png",
+        "botAnswers": "",
+        "isActive": ""
+    },
+    "Julia": {
+        "name": "Julia",
+        "messages": [
+            {
+                "msgClass": "robot",
+                "name": "Робот",
+                "message": "Привет, Julia! Как дела?"
+            }
+        ],
+        "userAvatar": "/src/components/ChatList/img/chatList_icon4.png",
+        "botAnswers": "",
+        "isActive": ""
+    },
+    "Allan": {
+        "name": "Allan",
+        "messages": [
+            {
+                "msgClass": "robot",
+                "name": "Робот",
+                "message": "Привет, Allan! Как дела?"
+            }
+        ],
+        "userAvatar": "/src/components/ChatList/img/chatList_icon5.png",
+        "botAnswers": "",
+        "isActive": ""
+    },
+    "Nikki": {
+        "name": "Nikki",
+        "messages": [
+            {
+                "msgClass": "robot",
+                "name": "Робот",
+                "message": "Привет, Nikki! Как дела?"
+            }
+        ],
+        "userAvatar": "/src/components/ChatList/img/chatList_icon3.png",
+        "botAnswers": "",
+        "isActive": ""
+    }
+}

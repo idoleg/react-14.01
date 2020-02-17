@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.newMessageForm{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+}
+.newMessageForm__nameInput{
+    width: 30%;
+    padding: 5px;
+    font-weight: bold;
+}
+.newMessageForm__messageInput{
+   /* width: 70%;*/
+    padding: 5px;
+}
+.newMessageForm__doublepoints{
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 50px;
+}
+.submitBtn{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+}
+.newMessage{
+    text-align: center;
+}
+.newMessageForm__button{
+    margin-top: 20px;
+}

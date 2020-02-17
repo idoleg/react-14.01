@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.messageRow{
+    margin-bottom: 10px;
+    border-radius: 3px;
+    padding: 5px;
+    /*display: block;*/
+    width: 60%;
+    background-color: lavenderblush;
+    border: 1px solid darkred;
+    /*float: right;*/
+    align-self: flex-end;
+    clear: both;
+}
+.messageRow:first-of-type{
+    margin-top: auto;
+}
+.messageRow--robot{
+    background-color: lavender;
+    border: 1px solid darkslateblue;
+    float: left;
+    align-self: flex-start;
+    float: left;
+}
+.messageTime{
+    font-size: 10px;
+    color: lightslategrey;
+}
