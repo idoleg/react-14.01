@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ChatList.css";
+import classnames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -21,15 +22,26 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const ChatList = ({ chats, activeChat, addChat, deleteChat, push }) => {
+export const ChatList = ({
+  chats,
+  activeChat,
+  menuView,
+  addChat,
+  deleteChat,
+  push
+}) => {
   const classes = useStyles();
   const [title, setTitle] = useState("");
+
+  const classNames = classnames("ChatList", {
+    ChatListView: menuView
+  });
 
   const handleNavigate = link => {
     push(link);
   };
 
-  const handleClik = () => {
+  const handleClick = () => {
     if (title) {
       addChat({ title });
       setTitle("");
@@ -43,7 +55,7 @@ export const ChatList = ({ chats, activeChat, addChat, deleteChat, push }) => {
     }
   };
 
-  const handleDeleteClik = chatId => {
+  const handleDeleteClick = chatId => {
     deleteChat(chatId);
   };
 
@@ -56,16 +68,16 @@ export const ChatList = ({ chats, activeChat, addChat, deleteChat, push }) => {
         onClick={() => handleNavigate(`/chats/${chatId}`)}
         primary={title}
       />
-      <DeleteIcon color="primary" onClick={() => handleDeleteClik(chatId)} />
+      <DeleteIcon color="primary" onClick={() => handleDeleteClick(chatId)} />
     </ListItem>
   ));
 
   return (
-    <List className="ChatList">
+    <List className={classNames}>
       {chatElements}
       <ListItem>
         <ListItemIcon>
-          <AddIcon color="primary" onClick={handleClik} />
+          <AddIcon color="primary" onClick={handleClick} />
         </ListItemIcon>
         <TextField
           id="standard-basic"

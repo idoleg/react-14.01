@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Profile } from "../Profile/Profile";
 import ChatContainer from "../../containers/ChatContainer";
 import ChatListContainer from "../../containers/ChatListContainer";
 import HeaderContainer from "../../containers/HeaderContainer";
 import ProfileContainer from "../../containers/ProfileContainer";
-import { Header } from "../Header/Header";
-import { ChatList } from "../ChatList/ChatList";
 import "./Layout.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { connectedRouter, ConnectedRouter } from "connected-react-router";

@@ -16,7 +16,7 @@ export const ChatForm = ({ onSendMessage }) => {
   const [content, setContent] = useState("");
   const classes = useStyles();
 
-  const handleClik = () => {
+  const handleClick = () => {
     onSendMessage({ name, content });
     setContent("");
   };
@@ -42,7 +42,7 @@ export const ChatForm = ({ onSendMessage }) => {
         rows="1"
         variant="outlined"
       />
-      <Button variant="contained" color="primary" onClick={handleClik}>
+      <Button variant="contained" color="primary" onClick={handleClick}>
         Отправить
       </Button>
     </div>

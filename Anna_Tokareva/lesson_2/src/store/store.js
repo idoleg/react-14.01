@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { createLogger } from "redux-logger";
 import chatReducer from "./chatReducer";
 import userReducer from "./userReducer";
+import menuReducer from "./menuReducer";
 import botMiddleware from "./botMiddleware";
 import chatMiddleware from "./chatMiddleware";
 import { createBrowserHistory } from "history";
@@ -16,7 +17,7 @@ const persistConfig = {
   key: "reactmessanger",
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ["chatReducer", "userReducer"]
+  whitelist: ["chatReducer", "userReducer", "menuReducer"]
 };
 
 export const history = createBrowserHistory();
@@ -24,6 +25,7 @@ export const history = createBrowserHistory();
 const reducer = combineReducers({
   chatReducer,
   userReducer,
+  menuReducer,
   router: connectRouter(history)
 });
 

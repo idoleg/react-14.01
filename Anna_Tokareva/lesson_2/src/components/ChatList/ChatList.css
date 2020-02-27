@@ -1,4 +1,15 @@
 .ChatList {
-  width: 30%;
+  display: none;
   background-color: lightslategray;
+}
+
+.ChatListView {
+  display: block;
+  width: 40%;
+}
+
+@media screen and (max-width: 650px) {
+  .ChatListView {
+    width: 100%;
+  }
 }

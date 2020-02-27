@@ -4,7 +4,7 @@ import "./Profile.css";
 export const Profile = ({ user }) => {
   return (
     <div className="Profile">
-      <h1>Моя страница</h1>
+      <h1>Мой профиль</h1>
       <div>Имя пользователя: {user.userName}</div>
     </div>
   );
