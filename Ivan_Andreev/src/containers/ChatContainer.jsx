@@ -14,7 +14,7 @@ export class ChatContainer extends Component {
     }
 
     componentDidUpdate() {
-        const lastMessage = this.state.messages[this.state.messages.length -1]
+        const lastMessage = this.state.messages[this.state.messages.length -1];
         if (lastMessage.name != 'Bot') {
             this.handleSendMessage({name: botName, message: defaultBotAnswer})
         }
