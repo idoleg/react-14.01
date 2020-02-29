@@ -1,0 +1,3 @@
+npm i redux // пакет Redux 
+npm i redux-react // пакет для работы redux с React
+npm i redux-action // для удобной работы с Redux с экшеноми и редьюсароми для читабельности кода . Не обезательный пакет .
