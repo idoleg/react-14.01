@@ -1,9 +1,0 @@
-.profile {
-  display: flex;
-  background-color: #fff;
-  padding: 20px;
-}
-
-.profile * {
-  margin: 0 20px; 
-}  

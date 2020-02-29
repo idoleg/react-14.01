@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 400px;
+    border: 2px solid black;
+}

@@ -1,0 +1,26 @@
+{
+    "1": {
+        "name": "Chat_1",
+        "unread": false,
+        "messages": [
+            {"name":"Ivan", "content": "Hi"}
+        ]
+    },
+    "2": {
+        "name": "Chat_2",
+        "unread": false,
+        "messages": [
+            {"name":"Ivan", "content":"Hi!"},
+            {"name":"Michael", "content":"Hi, how are you?"}
+        ]
+    },
+    "3": {
+        "name": "Chat_3",
+        "unread": false,
+        "messages": [
+            {"name":"Ivan", "content":"Hi!"},
+            {"name":"Michael", "content":"Hi, how are you?"},
+            {"name":"Ivan", "content":"im well"}
+        ]
+    }
+}

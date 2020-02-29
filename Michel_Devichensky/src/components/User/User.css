@@ -1,0 +1,10 @@
+.User {
+    background-color: rgb(39, 243, 243);
+    border-radius: 5px;
+    padding: 5px;
+    width: 30%;
+    margin:5px 5px 5px 5px;
+}
+.Name--robot{
+    background-color: rgb(9, 255, 70);
+}

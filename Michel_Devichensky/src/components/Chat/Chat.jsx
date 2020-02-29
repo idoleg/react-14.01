@@ -3,31 +3,35 @@ import './Chat.css'
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { MessageField } from '../MessageField/MessageField';
-import { Message } from '../Message/Message';
-import { ChatForm } from '../ChatForm/ChatForm';
-import { ChatList } from '../ChatList/ChatList';
+import {Message} from '../Message/Message'
+import {MessageField} from '../MessageField/MessageField';
+import {ChatForm} from '../ChatForm/ChatForm';
+import {UsersList} from '../UsersList/UsersList'
 /**
- * Компонент по отрисовки поля с формой отправки нового сообщения
- * @param {string} messages Массив с именем отправителя и сообщением
- * @param {string} message Текст сообщения
- * @param {string} name Имя отправителя
- * @param {Function} onSendMessage Обработчик отправки нового сообщения 
+ * Component - отрисовка поля чата
+ * @param {function} onSendMessage - обработчик отправки нового сообщения.
+ * @param {string} name - имя пользователя.
+ * @param {string} message - сообщение пользователя.
+ * @param {string} messages - сообщение пользователя.
  */
-export const Chat = ({chats, messages, message, name, onSendMessage }) => 
-(<div className="wrapper--container">
-    <ChatList chats={chats}/>
-    <MessageField messages={messages}/>
-    <ChatForm {...{message, name, onSendMessage}} 
-    placeholderName="User"
-    placeholderMessage="my Message"
-    placeholderAddChat="AddChat"
-    /> 
-</div>);
-
-Chat.propTypes = {
+export const Chat = ({ messages, onSendMessage }) => {
+    // console.log(messages)
+    if(messages) {
+        return (
+        <div className='Chat'>
+            <MessageField messages={messages}/>
+            <ChatForm onSendMessage={onSendMessage}/>
+            <UsersList messages={messages}/>
+        </div>);
+    } else {
+        return <span>Is not chats</span>
+    }  
+}
+    
+//https://ru.reactjs.org/docs/typechecking-with-proptypes.html
+ChatForm.propTypes = {
     messages: PropTypes.arrayOf(PropTypes.shape(Message.propTypes)),
-    message: PropTypes.string.isRequired,
+    // message: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onSendMessage: PropTypes.func.isRequired
-}
+};

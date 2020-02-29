@@ -1,9 +1,0 @@
-.react-messenger__chatlist {
-    width: 30%;
-}
-
-.react-messenger__chatlist-link,
-.react-messenger__chatlist-link:hover {
-    text-decoration: none;
-    color: #000000;
-}

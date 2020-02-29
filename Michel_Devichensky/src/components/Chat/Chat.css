@@ -1,20 +1,4 @@
-.wrapper--container {
-    height: 200px; 
-    width: 840px;
+.Chat {
     display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    flex-wrap: wrap;
-}
-.button{
-    background:black;
-    color:greenyellow;
-    text-decoration:none;
-    display:block;
-    width:90px;
-    text-align:center;
-    margin:17px 0 0 0;
-    padding:10px 10px;
-    transition:all 0.3s;
-    border: 2px solid greenyellow;
+    flex-direction: column;
 }

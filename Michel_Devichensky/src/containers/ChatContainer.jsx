@@ -1,83 +1,49 @@
-import React, { Component } from 'react';
+/**
+ * Функция [<connect>] является особенной с помощью этой функции пробрасывается вся информация из Redux в пропсы контейнера-компонента.
+ * @component {react-redux} [<connect()()>] - подключает Redux в этот контейнер, принемает аргументы.
+ * @params {function} mapStateToProps - 
+ * @params {function} mapDispatchToProps - 
+ * @component {class} ChatContainer - 
+ */
+import {connect} from 'react-redux';
+/**
+ * @component {'redux'} [<bindActionCreators>]
+ * @function [<bindActionCreators>] - эта функция получает диспатч?
+ */
+import {bindActionCreators} from 'redux';
+//---------------------------------------------------------------------------------------------
+import {addMessage} from '../store/chatAction';
+import {Chat} from '../components/Chat/Chat';
 
-import { Chat } from '../components/Chat/Chat'
-
-const ROBOT_NAME = 'Robot';
-export class ChatContainer extends Component {
-    state = {
-        chats: {
-            1: {
-                name: 'Chat_One',
-                messages: [
-                    { name: "Ivan", content: "work: chat one" }              
-                ]
-            },
-            2: {
-                name: 'Chat_Two',
-                messages: [
-                    { name: "Ivan", content: "work: chat two" },
-                    { name: "Oleg", content: "work: chat two" },
-                ]
-            },
-            3: {
-                name: 'Chat_Three',
-                messages: [
-                    { name: "Ivan", content: "work: chat three" },
-                    { name: "Oleg", content: "work: chat three" },
-                    { name: "Ivan", content: "work: chat three" }
-                ]
-            },
-            4: {
-                name: 'Chat_Four',
-                messages: [
-                    { name: "Ivan", content: "work: chat four" },
-                    { name: "Oleg", content: "work: chat four" },
-                    { name: "Ivan", content: "work: chat four" },
-                    { name: "Oleg", content: "work: chat four" }
-                ]
-            },
-        }
+const ROBOT_NAME = 'Robot';   
+/**
+ * @function [<mapStateToProps>] - передает значения стейта в пропсы
+ * @param {chatReducer} 
+ */
+const mapStateToProps = ({chatReducer}, {match}) => {
+    
+    const id = match.params.id;
+    return {
+        messages: id ? chatReducer.chats[id] ? chatReducer.chats[id].messages : null : null,
     }
-
-    componentDidMount() {
-
-    };
-
-    componentDidUpdate() {
-        const {chats} = this.state;
-        const {id} = this.props.match.params;
-        if(id && chats[id]) {
-            const messages = this.state.chats[id].messages;
-            const lastMessage = messages[messages.length -1];
-            if(lastMessage && lastMessage.name !== ROBOT_NAME) {
-                setTimeout(() => this.handleSendMessage(id)({ name: ROBOT_NAME, content: 'Hi im Robot ' + id }), 2000);
-            }
-        }
-    };
-    /**
-     *  
-     */
-    handleSendMessage = (id) => (message) => {
-        this.setState((state) => ({ 
-            chats: {
-                ...state.chats,
-                [id]: {
-                    name: state.chats[id].name,
-                    messages: [
-                        ...state.chats[id].messages,
-                        message,
-                    ]
-                }
-        }}))
-    };
-
-    render() {                                                                                                                                                                                     
-        const { chats } = this.state;
-        const {id} = this.props.match.params;
-        if(id && chats[id]) {
-            return <Chat { ...{chats: chats, messages: chats[id].messages, onSendMessage: this.handleSendMessage(id) }}/>
-        } else {
-            return <span>Вы не выбрали чат</span>
-        };
-    };
-};
+}
+/**
+ * @function [<mapDispatchToProps>] - передает действия стейта в пропсы
+ * @param {function} dispatch - функция пердает экшены(action) в reduce 
+ * @function [<bindActionCreators>] - принемает аргументы ЭКШЕНЫ в обьекте ({loadChats, addMessage}) и dispatch.
+ * loadChats, addMessage - заводим сюда по импорту
+ */
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+       addMessage
+    }, dispatch);
+}
+const margeProps = (stateProps, dispatchProps, {match}) => {
+    const id = match.params.id;
+    return {
+        ...stateProps,
+        onSendMessage: ({name, content}) => dispatchProps.addMessage(id, name, content),
+    }
+}
+//подключаем компонент ChatContainer к Redux - connect()(ChatContainer);
+export default connect(mapStateToProps, mapDispatchToProps, margeProps)(Chat);
