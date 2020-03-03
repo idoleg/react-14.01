@@ -17,8 +17,6 @@ export const ChatForm = ({onSendMessage}) => {
 
     const handleClick = () => {
         if (content.length > 0) {
-            // props.addMessage (id, name, content);
-            console.log (name, content);
             onSendMessage ({name, content});
             setContent('');
         }

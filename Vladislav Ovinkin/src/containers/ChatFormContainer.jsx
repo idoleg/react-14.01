@@ -4,7 +4,7 @@ import { addMessage } from '../store/chatAction';
 import { ChatForm } from '../components/ChatForm/ChatForm';
 
 const mapStateToProps = ({chatReducer}) => ({
-    chats: chatReducer.chats,
+    // chats: chatReducer.chats,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -14,7 +14,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mergeProps = (stateProps, dispatchProps, {id}) => {
-    // console.log (`ChatFormContainer id = ${id}`);
     return {
         ...stateProps,
         onSendMessage: ({name, content}) => dispatchProps.addMessage (id, name, content),

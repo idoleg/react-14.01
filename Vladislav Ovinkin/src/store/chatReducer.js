@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {loadChats, addChat, addMessage, fire, unfire} from './chatAction';
+import {loadChats, addChat, addMessage, fire, unfire, deleteMessage} from './chatAction';
 
 const defaultState = {
     chats: {}
@@ -84,6 +84,19 @@ export default handleActions ({
                     unread: 0,
                 },
             }
+        };
+    },
+    [deleteMessage]: (state, {payload: {id, index}}) => {
+        console.log('CHAT REDUCER - DELETE MESSAGE!');
+        return {
+            ...state,
+            chats: {...state.chats, 
+                [id]: {
+                    name: state.chats[id].name,
+                    unread: state.chats[id].unread,
+                    messages: state.chats[id].messages.slice (0,index).concat (state.chats[id].messages.slice (index + 1)),
+                },
+            }   
         };
     },
 }, defaultState);
