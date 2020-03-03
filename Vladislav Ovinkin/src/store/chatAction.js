@@ -2,7 +2,7 @@ import {createActions} from 'redux-actions'; // необходима для бо
 
 export const {loadChats, addChat, addMessage, fire, unfire} = createActions ({
     LOAD_CHATS: () => ({}),
-    ADD_CHAT: (id, name) => ({id, name}),
+    ADD_CHAT: (name) => ({name}),
     ADD_MESSAGE: (id, name, content) => ({id, name, content}),
     FIRE: (id) => ({id}),
     UNFIRE: (id) => ({id}),

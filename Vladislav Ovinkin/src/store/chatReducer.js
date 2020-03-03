@@ -33,6 +33,7 @@ export default handleActions ({
                     messages: [],
                 },
             },
+            nextChatId: 4,
         };
     },
     [addMessage]: (state, {payload: {id, name, content}}) => {
@@ -47,20 +48,20 @@ export default handleActions ({
             }
         };
     },
-    [addChat]: (state, {payload: {id, name}}) => {
+    [addChat]: (state, {payload: {name}}) => {
         return {
             ...state,
             chats: {...state.chats, 
-                [id]: { 
+                [state.nextChatId]: { 
                     name: name,
                     unread: 0,
                     messages: [],
                 },
-            }
+            },
+            nextChatId: state.nextChatId + 1,
         };
     },
     [fire]: (state, {payload: {id}}) => {
-        console.log (state.chats[id].unread);
         return {
             ...state,
             chats: {...state.chats, 

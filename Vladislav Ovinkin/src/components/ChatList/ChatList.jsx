@@ -10,13 +10,7 @@ export const ChatList = ({pathId, listChat, addChat}) => {
 
     const handleClick = () => {
         if (newName.length > 0) {
-            let chatsId = [];
-            listChat.forEach((item) => {
-                chatsId.push (item.id); 
-            });
-            const newChatId = Math.max.apply(null, chatsId) + 1;
-
-            addChat(newChatId, newName);
+            addChat(newName);
             setNewName('');
         }
     };
