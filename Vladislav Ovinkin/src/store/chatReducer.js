@@ -12,7 +12,7 @@ export default handleActions ({
             chats : {
                 1: {
                     name: 'Anna',
-                    unread: false,
+                    unread: 0,
                     messages: [
                         {name: 'chatBot', content: 'Hello!'},
                         {name: 'Anna', content: 'Hi! How are you?'},
@@ -21,7 +21,7 @@ export default handleActions ({
                 },
                 2: {
                     name: 'Elena',
-                    unread: false,
+                    unread: 0,
                     messages: [
                         {name: 'chatBot', content: 'Hello!'},
                         {name: 'Elena', content: 'Hi! It\'s interesting to talking with robot for me)'},
@@ -29,7 +29,7 @@ export default handleActions ({
                 },
                 3: {
                     name: 'Olga',
-                    unread: false,
+                    unread: 0,
                     messages: [],
                 },
             },
@@ -39,8 +39,9 @@ export default handleActions ({
         return {
             ...state,
             chats: {...state.chats, 
-                [id]: { 
+                [id]: {
                     name: state.chats[id].name,
+                    unread: state.chats[id].unread,
                     messages: [...state.chats[id].messages, {name, content}],
                 },
             }
@@ -52,19 +53,21 @@ export default handleActions ({
             chats: {...state.chats, 
                 [id]: { 
                     name: name,
+                    unread: 0,
                     messages: [],
                 },
             }
         };
     },
     [fire]: (state, {payload: {id}}) => {
+        console.log (state.chats[id].unread);
         return {
             ...state,
             chats: {...state.chats, 
                 [id]: { 
                     name: state.chats[id].name,
                     messages: [...state.chats[id].messages],
-                    unread: true,
+                    unread: state.chats[id].unread + 1,
                 },
             }
         };
@@ -77,7 +80,7 @@ export default handleActions ({
                 [id]: { 
                     name: state.chats[id].name,
                     messages: [...state.chats[id].messages],
-                    unread: false,
+                    unread: 0,
                 },
             }
         };
