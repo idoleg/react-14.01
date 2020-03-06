@@ -17,3 +17,11 @@
     color: white;
     text-shadow: 1px 1px 3px black;
 }
+.messageBtnDelete:hover {
+    font-weight: bold;
+    cursor: pointer;
+    color: red;
+}
+.messageBtnDelete:active {
+    color: white;
+}

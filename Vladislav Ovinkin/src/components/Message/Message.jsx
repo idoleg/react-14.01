@@ -16,8 +16,8 @@ export const Message = ({name, content, time, index, onDeleteMessage}) => {
             { time == undefined ?  '' : <small> [{time}]</small>}:
         </strong>
         <br/>&mdash; { content }
-        <div onClick={handleClick}>
-            X
+        <div onClick={handleClick} className="messageBtnDelete">
+            x
         </div>
     </div>);
 };
