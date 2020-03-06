@@ -1,1 +1,32 @@
-test!
+{
+    "1": {
+        "name": "Anna",
+        "unread": 0,
+        "messages": [{
+            "name": "chatBot",
+            "content": "Hello!"
+        }, {
+            "name": "Anna",
+            "content": "Hi! How are you?"
+        }, {
+            "name": "chatBot",
+            "content": "I am well!"
+        }]
+    },
+    "2": {
+        "name": "Elena",
+        "unread": 0,
+        "messages": [{
+            "name": "chatBot",
+            "content": "Hello!"
+        }, {
+            "name": "Elena",
+            "content": "Hi! It's interesting to talking with robot for me)"
+        }]
+    },
+    "3": {
+        "name": "Olga",
+        "unread": 0,
+        "messages": []
+    }
+}
