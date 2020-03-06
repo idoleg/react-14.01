@@ -73,7 +73,7 @@ export default handleActions ({
         };
     },
     [deleteMessage]: (state, {payload: {id, index}}) => {
-        console.log('CHAT REDUCER - DELETE MESSAGE!');
+        // console.log('CHAT REDUCER - DELETE MESSAGE!');
         return {
             ...state,
             chats: {...state.chats, 
