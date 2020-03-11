@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageList from '../MessageList/MessageList';
+import MessageListContainer from '../../containers/MessageListContainer';
 import ChatFormContainer from '../../containers/ChatFormContainer';
 import './Chat.css';
 
@@ -8,6 +8,6 @@ import './Chat.css';
  */
 export const Chat = ({id}) =>
     (<div className="chat">
-        <MessageList id={id} />
+        <MessageListContainer id={id} />
         <ChatFormContainer id={id} />
     </div>);

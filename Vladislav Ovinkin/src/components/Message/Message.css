@@ -6,6 +6,8 @@
     box-shadow: 1px 1px 3px #555;
     width: 40%;
     align-self: flex-end;
+    display: flex;
+    flex-direction: column;
 }
 .message--robot {
     align-self: flex-start;
@@ -15,7 +17,11 @@
 }
 .messageUserName {
     color: white;
+    font-weight: bold;
     text-shadow: 1px 1px 3px black;
+}
+.messageBtnDelete {
+    margin: 0 auto;
 }
 .messageBtnDelete:hover {
     font-weight: bold;

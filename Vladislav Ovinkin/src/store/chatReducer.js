@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {addChat, addMessage, fire, unfire, deleteMessage, chatsRequest, chatsSuccess} from './chatAction';
+import {addChat, addMessage, fire, unfire, deleteMessage, clearChat, deleteChat, chatsRequest, chatsSuccess} from './chatAction';
 
 const defaultState = {
     chats: {},
@@ -83,6 +83,25 @@ export default handleActions ({
                     messages: state.chats[id].messages.slice (0,index).concat (state.chats[id].messages.slice (index + 1)),
                 },
             }   
+        };
+    },
+    [clearChat]: (state, {payload: {id}}) => {
+        return {
+            ...state,
+            chats: {...state.chats, 
+                [id]: {
+                    name: state.chats[id].name,
+                    unread: state.chats[id].unread,
+                    messages: [],
+                },
+            }   
+        };
+    },
+    [deleteChat]: (state, {payload: {id}}) => {
+        const stateCopy = {...state};
+        delete stateCopy.chats[id];
+        return {
+            ...stateCopy,
         };
     },
 }, defaultState);

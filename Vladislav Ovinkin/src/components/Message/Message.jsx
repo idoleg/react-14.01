@@ -11,11 +11,11 @@ export const Message = ({name, content, time, index, onDeleteMessage}) => {
     }
 
     return (<div className={classNames}>
-        <strong>
+        <div>
             <span className="messageUserName">{ name }</span>
             { time == undefined ?  '' : <small> [{time}]</small>}:
-        </strong>
-        <br/>&mdash; { content }
+        </div>
+        &mdash; { content }
         <div onClick={handleClick} className="messageBtnDelete">
             x
         </div>

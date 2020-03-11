@@ -1,14 +1,15 @@
 import {createActions} from 'redux-actions'; // необходима для более лаконичной и удобной записи actions
 import {createAction} from 'redux-api-middleware';
 
-export const {addChat, addMessage, fire, unfire, deleteChat, deleteMessage, chatsRequest, chatsSuccess, chatsFailure} = createActions ({
+export const {addChat, addMessage, fire, unfire, deleteMessage, clearChat, deleteChat, chatsRequest, chatsSuccess, chatsFailure} = createActions ({
     // LOAD_CHATS: () => ({}),
     ADD_CHAT: (name) => ({name}),
     ADD_MESSAGE: (id, name, content) => ({id, name, content}),
     FIRE: (id) => ({id}),
     UNFIRE: (id) => ({id}),
-    DELETE_CHAT: (id) => ({id}),
     DELETE_MESSAGE: (id, index) => ({id, index}),
+    CLEAR_CHAT: (id) => ({id}),
+    DELETE_CHAT: (id) => ({id}),
     CHATS_REQUEST: () => ({}),
     CHATS_SUCCESS: (data) => (data),
     CHATS_REQUEST: (error) => (error),

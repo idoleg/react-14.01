@@ -1,4 +1,4 @@
-import { addChat, addMessage, fire, unfire } from './chatAction';
+import { addChat, addMessage, fire, unfire, deleteChat } from './chatAction';
 import { push } from 'connected-react-router';
 
 export default store => next => action => {
@@ -14,5 +14,7 @@ export default store => next => action => {
     } else if (action.type == '@@router/LOCATION_CHANGE') {
         const id = action.payload.location.pathname.split('/')[2];
         store.dispatch (unfire (id));
+    } else if (action.type == deleteChat.toString ()) {
+        store.dispatch (push('/chats/'));
     }
 }
