@@ -13,7 +13,9 @@ export default store => next => action => {
         }
     } else if (action.type == '@@router/LOCATION_CHANGE') {
         const id = action.payload.location.pathname.split('/')[2];
-        store.dispatch (unfire (id));
+        if (id) {
+            store.dispatch (unfire (id));
+        }
     } else if (action.type == deleteChat.toString ()) {
         store.dispatch (push('/chats/'));
     }

@@ -8,7 +8,7 @@ export const ChatList = ({pathId, listChat, addChat}) => {
 
     const [newName, setNewName] = useState ('NewChatName');
 
-    const handleClick = () => {
+    const handleClickNewChat = () => {
         if (newName.length > 0) {
             addChat(newName);
             setNewName('');
@@ -35,7 +35,7 @@ export const ChatList = ({pathId, listChat, addChat}) => {
                 variant="contained"
                 size="small"
                 color="primary" 
-                onClick={handleClick}>
+                onClick={handleClickNewChat}>
                     Добавить
             </Button>
         </div>
