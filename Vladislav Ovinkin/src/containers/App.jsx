@@ -8,15 +8,11 @@ import { loadChats } from '../store/chatAction';
 const {store, persistor} = initStore ();
 store.dispatch (loadChats ());
 export class App extends Component {
-    
-    componentWillUnmount () {
-        console.log ('App unmount');
-    }
-    
+      
     render () {
         return (
             <Provider store={store}>
-                <PersistGate loading = { null } persistor = { persistor }>
+                <PersistGate loading={ null } persistor={ persistor }>
                     <Router />
                 </PersistGate>
             </Provider>

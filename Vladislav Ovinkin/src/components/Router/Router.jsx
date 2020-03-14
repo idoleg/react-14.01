@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Layout from '../Layout/Layout';
 import { Profile } from '../Profile/Profile';
 import { ConnectedRouter} from 'connected-react-router';
